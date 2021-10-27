@@ -45,7 +45,7 @@ for arch in ${ARCHS_SLICE[@]}; do
         cd "${SRC_PATH}/${name}-${VERSION}"
 
         declare -A define
-        define["_version"]="${VERSION#v}"
+        define["_version"]="${VERSION}"
         define["_release"]="${RELEASE}"
         define["_arch"]="${debarch}"
         define["_goarch"]="${arch}"
