@@ -8,7 +8,8 @@ source "$(dirname "${BASH_SOURCE}")/helper.sh"
 
 ORIGIN="origin"
 SOURCE="${SOURCE:-$(helper::repos::get_base_repository)}"
-BRANCH="${BRANCH:-$(helper::workdir::version)}"
+BRANCH_PREFIX="${BRANCH_PREFIX:-}"
+BRANCH="${BRANCH:-${BRANCH_PREFIX}$(helper::workdir::version)}"
 
 if [[ ! -d "${REPOSDIR}/.git" ]]; then
     mkdir -p "${REPOSDIR}"
