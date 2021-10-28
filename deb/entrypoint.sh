@@ -31,7 +31,7 @@ IFS=, ARCHS_SLICE=(${ARCHS})
 for arch in ${ARCHS_SLICE[@]}; do
     for name in ${NAMES_SLICE[@]}; do
         echo "Building ${name} DEB's for ${arch}"
-        pkg="${PKG_PATH}/linux/${arch}"
+        pkg="${PKG_PATH}/linux/${arch}/${name}"
         src="${SRC_PATH}/${name}-${VERSION}"
 
         mkdir -p "${src}"
