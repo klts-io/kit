@@ -34,7 +34,7 @@ for arch in ${ARCHS_SLICE[@]}; do
     for name in ${NAMES_SLICE[@]}; do
         echo "Building ${name} RPM's for ${arch}"
 
-        pkg="${PKG_PATH}/linux/${arch}"
+        pkg="${PKG_PATH}/linux/${arch}/${name}"
         src="${SRC_PATH}/${name}-${VERSION}"
         tar="${SRC_PATH}/${name}-${VERSION}.tar.gz"
 
