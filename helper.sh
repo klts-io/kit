@@ -110,7 +110,6 @@ function helper::repos::branch() {
 WORKDIR="${WORKDIR:-${ROOT}/src/${REPO##*//}}"
 WORKDIR=$(realpath -m ${WORKDIR})
 
-
 function helper::show() {
     echo "KITDIR:     ${KITDIR}"
     echo "ROOT:       ${ROOT}"
@@ -122,3 +121,7 @@ function helper::show() {
     echo "REPO:       ${REPO}"
     echo "WORKDIR:    ${WORKDIR}"
 }
+
+if [[ "$(git config --global user.name)" == "" ]]; then
+    git config --global user.name "bot"
+fi

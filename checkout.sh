@@ -12,8 +12,17 @@ fi
 source "$(dirname "${BASH_SOURCE}")/helper.sh"
 cd "${ROOT}"
 
+ORIGIN="${ORIGIN:-origin}"
+
 if [[ ! -d "${WORKDIR}/.git" ]]; then
-    ${KITDIR}/git_init_workdir.sh
+    mkdir -p "${WORKDIR}" && cd "${WORKDIR}" && {
+        git init
+        if [[ "$(git remote | grep ${ORIGIN})" == "${ORIGIN}" ]]; then
+            git remote remove "${ORIGIN}"
+        fi
+        git remote add "${ORIGIN}" "${REPO}"
+        git remote update
+    }
 fi
 
 ORIGIN_RELEASE="$1"
