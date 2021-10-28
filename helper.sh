@@ -6,7 +6,7 @@ set -o pipefail
 
 KITDIR="$(dirname "${BASH_SOURCE}")"
 ROOT="${ROOT:-${KITDIR}/..}"
-OUTPUT="${OUTPUT:-${ROOT}/release}"
+OUTPUT="${OUTPUT:-${ROOT}/output}"
 PATCHESDIR="${PATCHESDIR:-${ROOT}/patches}"
 REPOSDIR="${REPOSDIR:-${ROOT}/repos}"
 TMPDIR="${TMP_DIR:-./tmp}"

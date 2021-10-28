@@ -14,7 +14,7 @@ RELEASE="${4:-}"
 SRC="${ROOT}/hack/rpm/"
 RPMBUILD="${ROOT}/rpmbuild/"
 RPMREPO="${REPOSDIR}/rpm/"
-PKG_PATH="${ROOT}/output/"
+PKG_PATH="${OUTPUT}"
 
 docker build -t rpm-builder "${KITDIR}/rpm/"
 

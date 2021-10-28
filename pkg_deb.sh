@@ -14,7 +14,7 @@ RELEASE="${4:-}"
 SRC="${ROOT}/hack/deb/"
 DEBBUILD="${ROOT}/debbuild/"
 DEBREPO="${REPOSDIR}/deb/"
-PKG_PATH="${ROOT}/output/"
+PKG_PATH="${OUTPUT}"
 
 docker build -t deb-builder "${KITDIR}/deb/"
 
