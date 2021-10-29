@@ -25,7 +25,7 @@ mkdir -p "${TMPDIR}"
 function helper::download() {
     local patch="$1"
     if ! [[ "${patch}" =~ ^https?:// ]]; then
-        echo "$(realpath -m ${patch})"
+        echo "$(realpath -m ${ROOT}/${patch})"
         return
     fi
     local tmp_patch="${TMPDIR}/$(basename ${patch})"
