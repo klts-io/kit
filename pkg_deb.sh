@@ -12,7 +12,7 @@ VERSION="${3:-}"
 RELEASE="${4:-}"
 NOTAR="${NOTAR:-}"
 
-SRC="${ROOT}/hack/deb/"
+SRC="${ROOT}/deb/"
 DEBBUILD="${ROOT}/debbuild/"
 DEBREPO="${REPOSDIR}/deb/"
 PKG_PATH="${OUTPUT}"

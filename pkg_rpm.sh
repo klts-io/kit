@@ -12,7 +12,7 @@ VERSION="${3:-}"
 RELEASE="${4:-}"
 NOTAR="${NOTAR:-}"
 
-SRC="${ROOT}/hack/rpm/"
+SRC="${ROOT}/rpm/"
 RPMBUILD="${ROOT}/rpmbuild/"
 RPMREPO="${REPOSDIR}/rpm/"
 PKG_PATH="${OUTPUT}"
