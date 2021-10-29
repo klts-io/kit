@@ -7,6 +7,8 @@ set -o pipefail
 source "$(dirname "${BASH_SOURCE}")/helper.sh"
 
 ORIGIN="origin"
+REPOS="${REPOS:-}"
+REPOSDIR="${REPOSDIR}/${REPOS}"
 SOURCE="${SOURCE:-$(helper::repos::get_base_repository)}"
 BRANCH_PREFIX="${BRANCH_PREFIX:-}"
 BRANCH="${BRANCH:-${BRANCH_PREFIX}$(helper::workdir::version)}"
