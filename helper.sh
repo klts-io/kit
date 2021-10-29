@@ -12,20 +12,20 @@ REPOSDIR="${REPOSDIR:-${ROOT}/repos}"
 TMPDIR="${TMP_DIR:-./tmp}"
 CONFIG="${CONFIG:-${ROOT}/releases.yml}"
 
-KITDIR=$(realpath ${KITDIR})
-ROOT=$(realpath ${ROOT})
-OUTPUT=$(realpath ${OUTPUT})
-PATCHESDIR=$(realpath ${PATCHESDIR})
-REPOSDIR=$(realpath ${REPOSDIR})
-TMPDIR=$(realpath ${TMPDIR})
-CONFIG=$(realpath ${CONFIG})
+KITDIR=$(realpath -m ${KITDIR})
+ROOT=$(realpath -m ${ROOT})
+OUTPUT=$(realpath -m ${OUTPUT})
+PATCHESDIR=$(realpath -m ${PATCHESDIR})
+REPOSDIR=$(realpath -m ${REPOSDIR})
+TMPDIR=$(realpath -m ${TMPDIR})
+CONFIG=$(realpath -m ${CONFIG})
 
 mkdir -p "${TMPDIR}"
 
 function helper::download() {
     local patch="$1"
     if ! [[ "${patch}" =~ ^https?:// ]]; then
-        echo "$(realpath ${patch})"
+        echo "$(realpath -m ${patch})"
         return
     fi
     local tmp_patch="${TMPDIR}/$(basename ${patch})"
