@@ -21,4 +21,4 @@ docker build -t deb-builder "${KITDIR}/deb/"
 
 mkdir -p "${DEBREPO}"
 
-docker run --rm -e NOTAR="${NOTAR}"  -v "${SRC}:/root/src" -v "${PKG_PATH}:/root/output/" -v "${DEBBUILD}:/root/debbuild/" -v "${DEBREPO}:/root/debrepo/" deb-builder "${NAMES}" "${ARCHS}" "${VERSION}" "${RELEASE}"
+docker run --rm -e NOTAR="${NOTAR}"  -v "${SRC}:/root/src" -v "${PKG_PATH}:/root/output/" -v "${DEBBUILD}:/root/debbuild/" -v "${DEBREPO}:/root/debrepo/" deb-builder "${NAMES}" "${ARCHS}" "${VERSION#v}" "${RELEASE}"

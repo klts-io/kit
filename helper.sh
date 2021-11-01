@@ -38,7 +38,7 @@ function helper::download() {
 
 function helper::workdir::version() {
     local version=$(cd "${WORKDIR}" && git describe --tags)
-    echo "${version#v}"
+    echo "${version}"
 }
 
 function helper::config::get_base_repository() {
