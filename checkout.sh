@@ -9,6 +9,8 @@ if [[ "$#" -lt 1 ]]; then
     exit 2
 fi
 
+COMMIT=${COMMIT:-true}
+
 source "$(dirname "${BASH_SOURCE}")/helper.sh"
 cd "${ROOT}"
 
@@ -41,7 +43,7 @@ else
     BASE_RELEASE=$(helper::config::get_base_release ${RELEASE})
 fi
 
-${KITDIR}/checkout.sh ${BASE_RELEASE}
+COMMIT=false ${KITDIR}/checkout.sh ${BASE_RELEASE}
 
 PATCHES=$(helper::config::get_patches ${RELEASE})
 
@@ -53,4 +55,8 @@ if [[ "${PATCH_LIST}" != "" ]]; then
     ${KITDIR}/git_patch.sh ${PATCH_LIST}
 fi
 
-cd "${WORKDIR}" && git tag -f "${ORIGIN_RELEASE}"
+if [[ "${COMMIT}" == "true" ]]; then
+    cd "${WORKDIR}" && git tag -f "${ORIGIN_RELEASE}" -m "Release ${ORIGIN_RELEASE}"
+else
+    cd "${WORKDIR}" && git tag -f "${ORIGIN_RELEASE}"
+fi
