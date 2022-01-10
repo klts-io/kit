@@ -37,4 +37,4 @@ done
 
 ${KITDIR}/git_patch.sh "${PATCH_PATH}"
 
-cd "${WORKDIR}" && git format-patch "-$COMMIT_COUNT" --zero-commit --no-signature --stdout >"${PATCH_PATH}"
+cd "${WORKDIR}" && git format-patch "-$COMMIT_COUNT" --abbrev=11 --zero-commit --no-signature --stdout >"${PATCH_PATH}"
