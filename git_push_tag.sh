@@ -13,17 +13,18 @@ source "$(dirname "${BASH_SOURCE}")/helper.sh"
 cd "${WORKDIR}"
 
 TAG="$1"
-BRANCH="tag-${TAG}"
-ORIGIN="origin-pull-${BRANCH}"
-
-if ! [[ -d .git ]]; then
-    git init
-fi
+ORIGIN="origin-push-${TAG}"
 
 if [[ "$(git remote | grep ${ORIGIN})" == "${ORIGIN}" ]]; then
     git remote remove "${ORIGIN}"
 fi
-git remote add "${ORIGIN}" "${REPO}"
 
-git fetch "${ORIGIN}" tag "${TAG}"
-git checkout -f -B "${BRANCH}" "${TAG}"
+SOURCE="${SOURCE:-}"
+
+if [[ "${GH_TOKEN:-}" != "" ]]; then
+    SOURCE=$(echo ${SOURCE} | sed "s#https://github.com#https://bot:${GH_TOKEN}@github.com#g")
+fi
+
+git remote add "${ORIGIN}" "${SOURCE}"
+
+git push "${ORIGIN}" "${TAG}"
