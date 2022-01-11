@@ -24,5 +24,5 @@ if [[ "$(git remote | grep ${ORIGIN})" == "${ORIGIN}" ]]; then
 fi
 git remote add "${ORIGIN}" "${REPO}"
 
-git fetch "${ORIGIN}" "${BRANCH}" --depth=1
+git fetch "${ORIGIN}" "${BRANCH}"
 git checkout -f -B "${BRANCH}" --track "${ORIGIN}/${BRANCH}"
