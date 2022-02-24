@@ -1,6 +1,4 @@
-FROM centos:8
-
-RUN echo "8-stream" > /etc/yum/vars/releasever
+FROM docker.m.daocloud.io/tgagor/centos-stream:stream8
 
 RUN dnf install -y rpm-build rpmdevtools createrepo && dnf clean all && rpmdev-setuptree
 
