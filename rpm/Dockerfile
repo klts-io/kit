@@ -1,6 +1,6 @@
-FROM docker.m.daocloud.io/tgagor/centos-stream:stream8
+FROM centos:7
 
-RUN dnf install -y rpm-build rpmdevtools createrepo && dnf clean all && rpmdev-setuptree
+RUN yum install -y rpm-build rpmdevtools createrepo && yum clean all && rpmdev-setuptree
 
 USER root
 ADD entrypoint.sh /root/
