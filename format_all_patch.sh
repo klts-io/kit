@@ -10,5 +10,5 @@ cd "${ROOT}"
 PATCHES=$(ls ${PATCHESDIR}/*.patch)
 
 for patch in ${PATCHES}; do
-    ${KITDIR}/format_patch.sh "$patch"
+    ${KITDIR}/format_patch.sh "$patch" || :
 done
