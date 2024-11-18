@@ -1,4 +1,4 @@
-FROM debian:10
+FROM debian:bookworm
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update -y \
@@ -7,7 +7,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   dpkg-dev \
   build-essential \
   debhelper \
-  dh-systemd \
   curl \
   ca-certificates \
   && apt-get upgrade -y \
