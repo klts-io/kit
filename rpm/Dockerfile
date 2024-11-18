@@ -1,6 +1,7 @@
-FROM centos:7
+FROM rockylinux/rockylinux:9
 
-RUN yum install -y rpm-build rpmdevtools createrepo && yum clean all && rpmdev-setuptree
+# entos7: yum install -y rpm-build rpmdevtools createrepo && yum clean all && rpmdev-setuptree
+RUN dnf install -y rpm-build rpmdevtools createrepo && dnf clean all && rpmdev-setuptree
 
 USER root
 ADD entrypoint.sh /root/
