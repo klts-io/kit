@@ -7,7 +7,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   dpkg-dev \
   build-essential \
   debhelper \
-  dh-systemd \
   curl \
   ca-certificates \
   && apt-get upgrade -y \
